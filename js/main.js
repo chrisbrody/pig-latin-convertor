@@ -6,13 +6,13 @@ function consonant(text) {
 	i = 0;
 	while(!isVowel(text.charAt(i)))
 		i++
-	return text.substring(i) + text.substring(0, i) + 'ay'
+	return text.substring(i) + ' ' + text.substring(0, i) + '-ay '
 }
 
 function vowel (text) {
 	if (text.charAt(text.length - 1) == 's') 
-		return text.substring(0, text.length - 1) + 'ays'
-	return text + 'ay'
+		return text.substring(0, text.length - 1) + '-ays '
+	return text + '-ay '
 }
 
 function wordProcessor (text) {
@@ -22,9 +22,22 @@ function wordProcessor (text) {
 		return consonant(text)
 }
 
+var newPhrase
+
+function regex(phrase) {
+	console.log(phrase)
+	newPhrase = phrase.split(' ')
+	
+
+	for(var i = 0; i < newPhrase.length ; i++) {
+		console.log(newPhrase[i])
+	}
+}
+
 function toPigLatin (form) {
 	form.output.value = ''
 	phrase = form.phrase.value
+	regex(phrase)
 	endPhrase = ''
 	for (var i = 0; phrase.length > 0; i++) {
 		if (phrase[i] == null || phrase[i] == ' ') {
